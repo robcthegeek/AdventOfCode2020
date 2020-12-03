@@ -20,7 +20,7 @@ namespace Tests
             Assert.Equal(2, result);
         }
 
-        [Fact(Skip = "WIP")]
+        [Fact]
         public void Part2_Example_Yields_Correct_Result()
         {
             var input = new[]
@@ -32,7 +32,7 @@ namespace Tests
 
             var result = Day2.Part2(input);
 
-            Assert.Equal(-1, result);
+            Assert.Equal(1, result);
         }
 
         [Fact]
@@ -45,14 +45,14 @@ namespace Tests
             Assert.Equal(645, result);
         }
 
-        [Fact(Skip = "WIP")]
+        [Fact]
         public void Solve_Part_2()
         {
             var input = Input.Day(2);
 
             var result = Day2.Part2(input);
 
-            Assert.Equal(276432018, result);
+            Assert.Equal(737, result);
         }
     }
 }

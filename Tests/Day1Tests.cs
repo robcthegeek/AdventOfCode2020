@@ -9,7 +9,7 @@ namespace Tests
         [Fact]
         public void Part1_Example_Yields_Correct_Result()
         {
-            var input = new []
+            var input = new[]
             {
                 "1721",
                 "979",

@@ -26,14 +26,14 @@ namespace Tests
             Assert.Equal(904, result);
         }
 
-        [Fact(Skip = "WIP")]
+        [Fact]
         public void Solve_Part_2()
         {
             var input = Input.Day(5);
 
             var result = Day5.Part2(input);
 
-            Assert.Equal(42, result);
+            Assert.Equal(669, result);
         }
     }
 }

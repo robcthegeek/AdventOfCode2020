@@ -9,7 +9,24 @@ namespace Solutions
             .Select(x => new BoardingPass(x).ID)
             .Max();
 
-        public static int Part2(string input) => -1;
+        public static int Part2(string input)
+        {
+            var allIds = input.Split(Environment.NewLine)
+                .Select(x => new BoardingPass(x).ID)
+                .ToArray();
+
+            var missing = Enumerable.Range(allIds.Min(), allIds.Max())
+                .Except(allIds)
+                .OrderBy(x => x);
+
+            foreach (var seat in missing)
+            {
+                if (allIds.Contains(seat - 1) && allIds.Contains(seat + 1))
+                    return seat;
+            }
+
+            return -1;
+        }
     }
 
     public record BoardingPass

@@ -5,6 +5,25 @@ namespace Tests
 {
     public class Day7Tests
     {
+        [Fact]
+        public void Can_Parse_Bag_Rule()
+        {
+            var rule = new BagRule("light red bags contain 1 bright white bag, 2 muted yellow bags.");
+
+            Assert.Equal("light red", rule.BagColor);
+            Assert.Contains(new ("bright white", 1), rule.Quantities);
+            Assert.Contains(new ("muted yellow", 2), rule.Quantities);
+        }
+
+        [Fact]
+        public void Can_Parse_Empty_Bag_Rule()
+        {
+            var rule = new BagRule("bright turquoise bags contain no other bags.");
+
+            Assert.Equal("bright turquoise", rule.BagColor);
+            Assert.Empty(rule.Quantities);
+        }
+
         [Fact(Skip = "WIP")]
         public void Solve_Part_1()
         {

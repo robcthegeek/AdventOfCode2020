@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace Solutions
 {
@@ -15,7 +14,22 @@ namespace Solutions
                         .Count()
                 );
 
-        public static int Part2(string input) => -1;
+        public static int Part2(string input)
+        {
+            var count = input
+                .Split($"{Environment.NewLine}{Environment.NewLine}", StringSplitOptions.RemoveEmptyEntries)
+                .Sum(group =>
+                {
+                    var people = group.Split(Environment.NewLine);
+                    return people
+                        .SelectMany(s => s.ToCharArray().Distinct())
+                        .GroupBy(q => q)
+                        .Select(g => new { g.Key, Count = g.Count() })
+                        .Where(g => g.Count == people.Length)
+                        .Count();
+                });
 
+            return count;
+        }
     }
 }
